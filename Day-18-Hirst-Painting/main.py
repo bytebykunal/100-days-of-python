@@ -9,6 +9,8 @@ color_list = [(202, 164, 110), (236, 239, 243), (149, 75, 50), (222, 201, 136), 
 tim = t.Turtle()
 tim.speed(0)
 t.colormode(255)
+tim.penup()
+tim.hideturtle()
 # no_of_dots going to be a perfect square
 no_of_dots = 100
 
@@ -16,39 +18,33 @@ dots_in_row = int(no_of_dots**(1/2))
 
 def start_pt(dots_in_row):
     x = (dots_in_row-1)*25
-    tim.up()
     tim.backward(x)
     tim.right(90)
     tim.forward(x)
     tim.left(90)
-    tim.down()
 
 
 def row_print(dots_in_row):
     
     for _ in range(dots_in_row):
         tim.dot(20, random.choice(color_list))
-        tim.up()
         if _ != dots_in_row - 1:
             tim.forward(50)
-        tim.down()
 
 
-def next_col(dots_in_row):
+def next_row(dots_in_row):
     y = (dots_in_row-1)*50
-    tim.up()
     tim.backward(y)
     tim.left(90)
     tim.forward(50)
     tim.right(90)
-    tim.down()
 
 
 start_pt(dots_in_row)
 for row in range(dots_in_row):
     row_print(dots_in_row)
     if row != dots_in_row -1:
-        next_col(dots_in_row)
+        next_row(dots_in_row)
 
 screen = t.Screen()
 screen.exitonclick()
