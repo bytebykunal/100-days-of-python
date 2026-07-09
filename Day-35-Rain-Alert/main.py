@@ -9,6 +9,7 @@ OWM_Endpoint = "https://api.openweathermap.org/data/2.5/forecast"
 api_key = os.environ.get("OWM_API_KEY")
 account_sid = os.environ.get("ACCOUNT_SID")
 auth_token = os.environ.get("AUTH_TOKEN")
+MY_PHONE = os.environ.get("MY_PHONE_NUMBER")
 
 
 
@@ -36,7 +37,7 @@ if will_rain:
     message = client.messages.create(
         body="It's going to rain today. Remember to bring an ☔",
         from_="+16812756849",
-        to="+919259512414",
+        to=MY_PHONE,
     )
     print(message.status)
 else:
